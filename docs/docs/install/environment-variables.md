@@ -67,10 +67,16 @@ Information on the current workers can be found [here](/administration/jobs-work
 
 ## Ports
 
-| Variable      | Description    |                  Default                   | Containers               |
-| :------------ | :------------- | :----------------------------------------: | :----------------------- |
-| `IMMICH_HOST` | Listening host |                 `0.0.0.0`                  | server, machine learning |
-| `IMMICH_PORT` | Listening port | `2283` (server), `3003` (machine learning) | server, machine learning |
+| Variable           | Description           |                  Default                   | Containers               |
+|:-------------------|:----------------------|:------------------------------------------:|:-------------------------|
+| `IMMICH_HOST`      | Listening host        |                 `0.0.0.0`                  | server, machine learning |
+| `IMMICH_PORT`      | Listening port        | `2283` (server), `3003` (machine learning) | server, machine learning |
+| `IMMICH_UNIX_HOST` | Listening unix socket |       `/var/lib/immich/immich.sock`        | server                   |
+
+:::info
+If `IMMICH_UNIX_HOST` is defined in your environment and starts with a `/`, it's automatically preferred over `IMMICH_HOST` for
+the _immich-api_ worker.
+:::
 
 ## Database
 
